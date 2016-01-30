@@ -49,4 +49,5 @@ ui/*
 !ui/README.md
 !ui/public
 !ui/tests
+!ui/vendor
 ui/tests/.jshintrc
