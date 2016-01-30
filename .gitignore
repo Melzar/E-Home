@@ -38,3 +38,15 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+ui/*
+!ui/app
+!ui/config
+!ui/package.json
+!ui/testem.json
+!ui/bower.json
+!ui/ember-cli-build.js
+!ui/README.md
+!ui/public
+!ui/tests
+ui/tests/.jshintrc

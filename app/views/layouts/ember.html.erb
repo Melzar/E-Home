@@ -1,0 +1,7 @@
+<!-- app/views/application/index.html.erb -->
+<%= render_ember_app :ui do |head| %>
+    <% head.append do %>
+        <%= stylesheet_link_tag    'application', media: 'all' %>
+        <%= csrf_meta_tags %>
+    <% end %>
+<% end %>

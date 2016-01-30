@@ -1,28 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== EMBER SETUP AND INTEGRATION WITH RAILS
 
-Things you may want to cover:
+* PREREQUISITIES
 
-* Ruby version
+- brew install node
+- npm install ember-cli -g
+- npm install bower -g
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Configuration details
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Integrating ember with rails
+https://github.com/thoughtbot/ember-cli-rails
+
+## Setting up structure for ember and rails
+http://nandovieira.com/setting-up-emberjs-with-rails-ember-cli-edition
+
