@@ -22,5 +22,7 @@ module Ehome
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.assets.precompile += ["*.ttf", "*.woff", "*.svg", "*.eot"]
   end
 end

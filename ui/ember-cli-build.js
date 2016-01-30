@@ -4,9 +4,44 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    minifyJS: {
+      enabled: EmberApp.env() === 'production'
+    },
+    minifyCSS: {
+      enabled: EmberApp.env() === 'production'
+    },
+    sassOptions: {
+      extension: 'sass'
+    }
     // Add options here
   });
 
+  // Adding fonts
+
+  app.import('vendor/fonts/fontawesome-webfont.eot',{
+    destDir: 'assets'
+  });
+  app.import('vendor/fonts/fontawesome-webfont.svg',{
+    destDir: 'assets'
+  });
+  app.import('vendor/fonts/fontawesome-webfont.ttf',{
+    destDir: 'assets'
+  });
+  app.import('vendor/fonts/fontawesome-webfont.woff',{
+    destDir: 'assets'
+  });
+  app.import('vendor/fonts/fontawesome-webfont.woff2',{
+    destDir: 'assets'
+  });
+
+  // Manually added libraries
+  app.import('vendor/javascripts/plugins/bootstrap/bootstrap.js');
+  app.import('vendor/javascripts/plugins/metisMenu/jquery.metisMenu.js');
+  app.import('vendor/javascripts/plugins/pace/pace.min.js');
+  app.import('vendor/javascripts/plugins/slimscroll/jquery.slimscroll.js');
+
+  // Manually added initializer
+  app.import('vendor/javascripts/inspinia.js');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
