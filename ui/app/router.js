@@ -11,6 +11,7 @@ Router.map(function() {
   });
   this.route('reset-password');
   this.route('sign-up');
+  this.route('404', { path: '/*path' });
 });
 
 export default Router;
