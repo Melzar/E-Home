@@ -15,6 +15,9 @@
 ## Integrating ember with rails
 https://github.com/thoughtbot/ember-cli-rails
 
+## Integrating rails devise with ember
+http://romulomachado.github.io/2015/09/28/using-ember-simple-auth-with-devise.html
+
 ## Setting up structure for ember and rails
 http://nandovieira.com/setting-up-emberjs-with-rails-ember-cli-edition
 
