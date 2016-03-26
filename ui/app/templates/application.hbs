@@ -1,1 +1,5 @@
-{{outlet}}
+{{#if session.isAuthenticated }}
+  {{partial 'layouts/authenticated'}}
+{{else}}
+  {{partial 'layouts/guest'}}
+{{/if}}

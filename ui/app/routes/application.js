@@ -2,4 +2,8 @@ import Ember from 'ember';
 
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
-export default Ember.Route.extend(ApplicationRouteMixin);
+const { service } = Ember.inject;
+
+export default Ember.Route.extend(ApplicationRouteMixin,{
+  session: service('session')
+});

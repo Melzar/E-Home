@@ -8,6 +8,13 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('users', function() {
     this.route('dashboard');
+    this.route('living', function() {
+      this.route('add_living');
+    });
+
+    this.route('livings', function() {
+      this.route('add-living');
+    });
   });
   this.route('reset-password');
   this.route('sign-up');

@@ -8,6 +8,8 @@ export default Ember.Component.extend({
   actions:{
     logout: function(){
       this.get('session').invalidate();
+      /* Added transition to avoid timout with redirection after logout */
+      this.transitionTo('index');
     }
   }
 });
