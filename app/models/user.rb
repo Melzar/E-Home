@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token
 
+  belongs_to :role
+  has_one :customer
+
   def ensure_authentication_token
     if authentication_token.blank?
       self.authentication_token = generate_authentication_token

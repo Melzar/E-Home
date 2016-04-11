@@ -44,6 +44,16 @@ gem 'devise', '~> 4.0.0.rc1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Rspec framework for testing
+  gem 'rspec-rails', '~> 3.4'
+
+  # FactoryGirl for generating mockups
+  gem 'factory_girl', '~> 4.7'
+
+  # Capybara for some automated testing
+  gem 'capybara', '~> 2.7'
+
 end
 
 group :development do
