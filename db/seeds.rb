@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+# Load application roles
+customer = Role.create!({name: 'customer'})
+admin = Role.create!({name: 'admin'})
+
+# Load mock users
+User.create!({email: 'admin@example.net', password: 'Example123', role: admin})
+User.create!({email: 'stiven@example.net', password: 'Example123', role: customer})

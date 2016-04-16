@@ -14,6 +14,8 @@ Router.map(function() {
 
     this.route('livings', function() {
       this.route('add-living');
+      this.route('edit-living');
+      //this.route('index');
     });
   });
   this.route('reset-password');
