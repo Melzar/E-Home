@@ -1,13 +1,17 @@
-<div class="row">
-    <div class="col-lg-12">
-        <div class="text-center m-t-lg">
-            <h1>
-               add living
-            </h1>
-            <p>
-              add living component
-            </p>
-        </div>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Add Living</h2>
+        <ol class="breadcrumb">
+            <li>
+              {{#link-to "users.dashboard"}}Dashboard{{/link-to}}
+            </li>
+            <li>
+              {{#link-to "users.livings"}}Livings{{/link-to}}
+            </li>
+            <li class="active">
+              {{#link-to "users.livings.add-living"}}<strong>Add</strong>{{/link-to}}
+            </li>
+        </ol>
     </div>
 </div>
 {{outlet}}

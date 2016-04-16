@@ -6,14 +6,42 @@
               {{#link-to "users.dashboard"}}Dashboard{{/link-to}}
             </li>
             <li class="active">
-              {{#link-to "users.livings.add-living"}}<strong>Livings</strong>{{/link-to}}
+              {{#link-to "users.livings"}}<strong>Livings</strong>{{/link-to}}
             </li>
         </ol>
     </div>
 </div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
-
+<div class="row">
+    <div class="col-xs-12">
+        <div class="row m-b-md">
+            <div class="col-xs-12 text-right">
+              {{#link-to "users.livings.add-living" class="btn btn-primary "}}Add Living{{/link-to}}
+            </div>
+        </div>
+        <div class="ibox">
+            <div class="ibox-content">
+               <table class="table table-striped">
+                    <thead>
+                      <tr>
+                          <th>Living Name</th>
+                          <th>Living Type</th>
+                          <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <td>Living</td>
+                          <td>Type</td>
+                          <td><a class="btn btn-success btn-xs">Edit</a></td>
+                      </tr>
+                    </tbody>
+               </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
 
