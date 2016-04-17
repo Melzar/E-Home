@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:users/livings/edit-living', 'Unit | Route | users/livings/edit living', {
+moduleFor('route:users/accomodations/add-accomodation', 'Unit | Route | users/accomodations/add accomodation', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
