@@ -8,13 +8,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('users', function() {
     this.route('dashboard');
-    this.route('accomodation', function() {
-      this.route('add_accomodation');
-    });
 
     this.route('accomodations', function() {
-      this.route('add-accomodation');
-      this.route('edit-accomodation');
+      this.route('new');
+      this.route('show');
       //this.route('index');
     });
   });
