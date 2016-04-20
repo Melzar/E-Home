@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   mount_ember_app :ui, to: '/', controller: 'ember'
 
 
+  namespace :customers, format: :json do
+      resources :accomodations,  only: [:create, :index, :update, :show]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

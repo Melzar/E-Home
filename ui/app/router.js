@@ -6,7 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('users', function() {
+  this.route('customers', function() {
     this.route('dashboard');
 
     this.route('accomodations', function() {

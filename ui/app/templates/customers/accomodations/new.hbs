@@ -3,13 +3,13 @@
         <h2>Add Accomodation</h2>
         <ol class="breadcrumb">
             <li>
-              {{#link-to "users.dashboard"}}Dashboard{{/link-to}}
+              {{#link-to "customers.dashboard"}}Dashboard{{/link-to}}
             </li>
             <li>
-              {{#link-to "users.accomodations"}}Accomodations{{/link-to}}
+              {{#link-to "customers.accomodations"}}Accomodations{{/link-to}}
             </li>
             <li class="active">
-              {{#link-to "users.accomodations.new"}}<strong>Add</strong>{{/link-to}}
+              {{#link-to "customers.accomodations.new"}}<strong>Add</strong>{{/link-to}}
             </li>
         </ol>
     </div>
@@ -27,46 +27,48 @@
                     <form {{action "save" on="submit"}}>
                         <div class="form-group">
                             <label class="control-label">Name</label>
-                          {{input
-                          value=model.name
-                          id="name"
-                          type="text"
-                          placeholder="eg. My home at creek" class="form-control"}}
-                            {{model.name}}
+                          {{input value=model.name id="name" type="text" placeholder="eg. My home at creek"
+                          class="form-control"}}
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-xs-8 col-lg-6">
                                     <label class="control-label">Address 1</label>
-                                    <input id="address_1" type="text" placeholder="eg. Space street" class="form-control">
+                                  {{input value=model.address_1 id="address_1" type="text" placeholder="eg. Space street"
+                                  class="form-control"}}
                                 </div>
                                 <div class="col-xs-4 col-lg-6">
                                     <label class="control-label">Address 2</label>
-                                    <input id="address_2" type="text" placeholder="eg. 31/08" class="form-control">
+                                  {{input value=model.address_2 id="address_2" type="text" placeholder="eg. 31/08"
+                                  class="form-control"}}
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-lablel">City</label>
-                            <input id="city" type="text" placeholder="eg. Washington" class="form-control">
+                            {{input value=model.city id="city" type="text" placeholder="eg. Washington"
+                            class="form-control"}}
                         </div>
                         <div class="form-group">
                             <label class="control-label">Zip</label>
-                            <input id="zip" type="text" placeholder="eg. 00-000" class="form-control">
+                            {{input value=model.zip id="zip" type="text" placeholder="eg. eg. 00-000"
+                            class="form-control"}}
                         </div>
                         <div class="form-group">
                             <label class="control-label">Latitude</label>
-                            <input id="latitude" type="text" placeholder="eg. 50.0000" class="form-control">
+                            {{input value=model.latitude id="latitude" type="text" placeholder="eg. 50.0000"
+                            class="form-control"}}
                         </div>
                         <div class="form-group">
                             <label class="control-label">Longitude</label>
-                            <input id="longitude" type="text" placeholder="eg. 50.0000" class="form-control">
+                            {{input value=model.longitude id="longitude" type="text" placeholder="eg. 50.0000"
+                            class="form-control"}}
                         </div>
                         <div class="form-group clear">
-                          {{#link-to "users.accomodations"
-                          id="cancel"
-                          class="btn btn-danger btn-sm pull-left"}}Cancel{{/link-to}}
-                          <button id="submit" type="submit" class="btn btn-primary btn-sm pull-right">Save</button>
+                          {{#link-to "customers.accomodations" id="cancel" class="btn btn-danger btn-sm pull-left"}}
+                              Cancel
+                          {{/link-to}}
+                            <button id="submit" type="submit" class="btn btn-primary btn-sm pull-right">Save</button>
                         </div>
                     </form>
                 </div>

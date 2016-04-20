@@ -20,9 +20,6 @@ class Accomodation < ActiveRecord::Base
   validates :zip,
             presence: true,
             length: { maximum: 50 }
-  validates :first_name,
-            presence: true,
-            length: { maximum: 100 }
 
 
 end

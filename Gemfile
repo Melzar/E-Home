@@ -32,6 +32,9 @@ gem 'ember-cli-rails'
 # Devise
 gem 'devise', '~> 4.0.0.rc1'
 
+# Active Models serializers
+gem 'active_model_serializers', '~> 0.10.0.rc5'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
