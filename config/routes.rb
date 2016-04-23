@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 
   namespace :customers, format: :json do
-      resources :accomodations,  only: [:create, :index, :update, :show]
+    resources :accomodations,  only: [:create, :index, :update, :show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

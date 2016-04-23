@@ -3,6 +3,8 @@ class Customer < ActiveRecord::Base
   belongs_to :user
   has_many :authorized_devices
   has_many :accomodations, through: :customer_accomodations
+  has_many :authorized_devices, through: :customer_accomodations
+  has_many :customer_accomodations
 
   validates :first_name,
             presence: true,

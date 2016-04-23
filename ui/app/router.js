@@ -12,7 +12,6 @@ Router.map(function() {
     this.route('accomodations', function() {
       this.route('new');
       this.route('show');
-      //this.route('index');
     });
   });
   this.route('reset-password');

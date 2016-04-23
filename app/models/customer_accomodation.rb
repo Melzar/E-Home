@@ -4,4 +4,6 @@ class CustomerAccomodation < ActiveRecord::Base
   belongs_to :accomodation
   belongs_to :customer
 
+  validates_associated :accomodation
+
 end

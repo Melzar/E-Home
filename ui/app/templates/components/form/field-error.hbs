@@ -1,0 +1,6 @@
+{{#each errors as |error|}}
+    <div class="alert alert-danger">
+      {{error.message}}
+    </div>
+{{/each}}
+{{yield}}

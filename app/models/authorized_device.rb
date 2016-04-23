@@ -2,6 +2,8 @@ class AuthorizedDevice < ActiveRecord::Base
 
   belongs_to :customer
   has_many :accomodations, through: :customer_accomodations
+  has_many :customers, through: :customer_accomodations
+  has_mant :customer_accomodations
 
   validates :name,
             presence: true,
