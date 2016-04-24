@@ -1,7 +1,6 @@
 class ApiController < ApplicationController
 
-  def render_json_response(response)
-
+  def render_json_response(response, opts={})
     if response.is_a?(ActiveRecord::Base) && (response.errors.present? && response.errors.any?)
       render json: {errors: response.errors.map{ |k,v|
         {
@@ -10,9 +9,12 @@ class ApiController < ApplicationController
         }
       }}, status: :unprocessable_entity
     else
-      render json: response, status: :ok
+      render json: response, status: :ok, include: opts
     end
+  end
 
+  def render_response(status)
+      render json: nil, status: status
   end
 
 

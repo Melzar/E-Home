@@ -2,7 +2,7 @@ class Customers::AccomodationsController < ApiController
 
   def index
     accomodations = Accomodation.for_customer(current_user.customer).map do |accomodation| accomodation end
-    render_json_response(accomodations)
+    render_json_response(accomodations, :accomodation_type)
   end
 
   def create
@@ -21,12 +21,33 @@ class Customers::AccomodationsController < ApiController
     end
   end
 
+  def show
+    accomodation = accomodation_from_params
+    render_json_response(accomodation, :accomodation_type)
+  end
+
+  def update
+    accomodation = accomodation_from_params
+    accomodation.update_attributes(post_params)
+    render_json_response(accomodation)
+  end
+
   def get_accomodation_types
     accomodation_types = AccomodationType.all
     render_json_response(accomodation_types)
   end
 
   private
+
+  def accomodation_from_params
+    accomodation = current_user.customer.accomodations.find_by_id(params[:id])
+    if(accomodation.blank?)
+      render_response(:unprocessable_entity)
+      return
+    end
+    accomodation
+  end
+
   def post_params
     ActiveModelSerializers::Deserialization.jsonapi_parse!(params.to_unsafe_h,
                                                            only: [
