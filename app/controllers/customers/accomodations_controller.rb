@@ -21,6 +21,11 @@ class Customers::AccomodationsController < ApiController
     end
   end
 
+  def get_accomodation_types
+    accomodation_types = AccomodationType.all
+    render_json_response(accomodation_types)
+  end
+
   private
   def post_params
     ActiveModelSerializers::Deserialization.jsonapi_parse!(params.to_unsafe_h,
@@ -32,7 +37,7 @@ class Customers::AccomodationsController < ApiController
                                                                :zip,
                                                                :latitude,
                                                                :longitude,
-                                                               :accomodation_type
+                                                               'accomodation-type'
                                                            ])
   end
 end

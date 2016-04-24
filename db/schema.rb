@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20160411210611) do
 
   create_table "accomodation_types", force: :cascade do |t|
-    t.string   "type",       limit: 100, null: false
+    t.string   "name",       limit: 100, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

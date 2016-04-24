@@ -32,6 +32,17 @@
                           {{form.field-error errors=model.errors.name }}
                         </div>
                         <div class="form-group">
+                            <label class="control-label">Accomodation Type</label>
+                          {{#power-select
+                              searchEnabled=false
+                              selected=model.accomodation_type
+                              options=accomodationTypes
+                              onchange=(action "applyAccomodationType") as |accomodationType|
+                          }}
+                            {{accomodationType.name}}
+                          {{/power-select}}
+                        </div>
+                        <div class="form-group">
                             <div class="row">
                                 <div class="col-xs-8 col-lg-6">
                                     <label class="control-label">Address 1</label>

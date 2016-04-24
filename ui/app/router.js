@@ -11,7 +11,8 @@ Router.map(function() {
 
     this.route('accomodations', function() {
       this.route('new');
-      this.route('show');
+      this.route('show', { path: '/:id'});
+      this.route('edit', { path: '/:id/edit'});
     });
   });
   this.route('reset-password');

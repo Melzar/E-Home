@@ -6,11 +6,11 @@ class Accomodation < ActiveRecord::Base
   has_many :customer_accomodations
   has_many :spaces
 
+  validates_presence_of :accomodation_type
+
   scope :for_customer, -> (customer){
     joins(:customers)
     .where(customers: { id: customer })
-    # where(customers: {id: customer})
-
   }
 
   validates :name,

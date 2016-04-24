@@ -24,3 +24,11 @@ Customer.create!({first_name: 'Steven',
                   zip: '000-000',
                   user: steven_user
                   })
+
+AccomodationType.create!({
+                             name: 'flat'
+                         })
+
+AccomodationType.create!({
+                             name: 'house'
+                         })

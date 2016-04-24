@@ -4,6 +4,9 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    'ember-power-select': {
+      theme: 'bootstrap'
+    },
     minifyJS: {
       enabled: EmberApp.env() === 'production'
     },

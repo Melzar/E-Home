@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
 
   namespace :customers, format: :json do
-    resources :accomodations,  only: [:create, :index, :update, :show]
+    resources :accomodations,  only: [:create, :index, :update, :show] do
+      get :get_accomodation_types, on: :collection
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
