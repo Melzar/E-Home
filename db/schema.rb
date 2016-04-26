@@ -79,19 +79,21 @@ ActiveRecord::Schema.define(version: 20160411210611) do
   end
 
   create_table "space_types", force: :cascade do |t|
-    t.string   "type",       limit: 100, null: false
+    t.string   "name",       limit: 100, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "spaces", force: :cascade do |t|
-    t.string   "name",          limit: 150, null: false
-    t.integer  "space_type_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",            limit: 150, null: false
+    t.integer  "accomodation_id", limit: 4
+    t.integer  "space_type_id",   limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
-  add_index "spaces", ["space_type_id"], name: "index_spaces_on_space_type_id", using: :btree
+  add_index "spaces", ["accomodation_id"], name: "fk_rails_28c71d56a7", using: :btree
+  add_index "spaces", ["space_type_id"], name: "fk_rails_b80275384e", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                                      null: false
@@ -120,6 +122,7 @@ ActiveRecord::Schema.define(version: 20160411210611) do
   add_foreign_key "customer_accomodations", "customers", name: "Customers_Accomodations_Accomodations_Foreign_Key"
   add_foreign_key "customer_accomodations", "customers", name: "Customers_Accomodations_Customers_Foreign_Key"
   add_foreign_key "customers", "users", name: "Customers_Users_Foreign_Key"
-  add_foreign_key "spaces", "space_types", name: "Space_Space_types_Foreign_Key"
+  add_foreign_key "spaces", "accomodations"
+  add_foreign_key "spaces", "space_types"
   add_foreign_key "users", "roles", name: "Users_Roles_Foreign_Key"
 end

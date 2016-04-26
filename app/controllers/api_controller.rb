@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
 
-  def render_json_response(response, opts={})
+  def render_json_response(response=nil, opts={})
     if response.is_a?(ActiveRecord::Base) && (response.errors.present? && response.errors.any?)
       render json: {errors: response.errors.map{ |k,v|
         {

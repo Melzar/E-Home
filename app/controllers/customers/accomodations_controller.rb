@@ -17,13 +17,13 @@ class Customers::AccomodationsController < ApiController
         render_json_response(customer_accomodation)
         raise ActiveRecord::Rollback
       end
-      render_json_response(nil)
+      render_json_response
     end
   end
 
   def show
     accomodation = accomodation_from_params
-    render_json_response(accomodation, :accomodation_type)
+    render_json_response(accomodation, [:accomodation_type, spaces: [:space_type]])
   end
 
   def update

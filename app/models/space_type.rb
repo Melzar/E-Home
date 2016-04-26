@@ -2,7 +2,7 @@ class SpaceType < ActiveRecord::Base
 
   has_many :spaces
 
-  validates :type,
+  validates :name,
             presence: true,
             length: { maximum: 100 }
 

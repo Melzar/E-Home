@@ -9,5 +9,6 @@ export default DS.Model.extend({
   latitude: DS.attr(),
   longitude: DS.attr(),
   accomodation_type: DS.belongsTo('accomodation-type', {async: false}),
-  customers: DS.hasMany('customer', {async: false})
+  customers: DS.hasMany('customer', {async: false}),
+  spaces: DS.hasMany('space', {async: false})
 });

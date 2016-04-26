@@ -15,7 +15,7 @@ admin = Role.create!({name: 'admin'})
 User.create!({email: 'admin@example.net', password: 'Example123', role: admin})
 steven_user = User.create!({email: 'steven@example.net', password: 'Example123', role: customer})
 
-Customer.create!({first_name: 'Steven',
+steven_customer = Customer.create!({first_name: 'Steven',
                   last_name: 'Seagal',
                   phone_number: '000-000',
                   address_1: 'Winston Street',
@@ -25,10 +25,37 @@ Customer.create!({first_name: 'Steven',
                   user: steven_user
                   })
 
-AccomodationType.create!({
+flat = AccomodationType.create!({
                              name: 'flat'
                          })
 
-AccomodationType.create!({
+house = AccomodationType.create!({
                              name: 'house'
                          })
+
+accomodation = Accomodation.create!({
+                         name: 'My Accomodation',
+                         address_1: 'Wilkinson Street',
+                         address_2: '50 MA Main',
+                         city: 'Portland',
+                         zip: '00-000',
+                         latitude: '50',
+                         longitude: '50',
+                         accomodation_type: flat,
+                         customers: [steven_customer]
+                     })
+
+room = SpaceType.create!({
+                      name: 'room'
+                  })
+SpaceType.create!({
+                      name: 'kitchen'
+                  })
+SpaceType.create!({
+                      name: 'guest_room'
+                  })
+Space.create!({
+                name: 'Living room',
+                space_type: room,
+                accomodation: accomodation
+              })

@@ -8,11 +8,15 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('customers', function() {
     this.route('dashboard');
-
     this.route('accomodations', function() {
       this.route('new');
       this.route('show', { path: '/:id'});
       this.route('edit', { path: '/:id/edit'});
+      this.route('spaces', function() {
+        this.route('show', { path: '/:id'});
+        this.route('edit', { path: '/:id/edit'});
+        this.route('new');
+      });
     });
   });
   this.route('reset-password');

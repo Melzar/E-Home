@@ -4,6 +4,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
   model: function(params){
-    return this.store.findRecord('accomodation', params.id, { reload: true });
+    return this.store.findAll('space', params.id);
   }
 });

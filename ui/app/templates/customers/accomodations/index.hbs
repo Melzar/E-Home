@@ -44,13 +44,10 @@
                             <td>{{accomodation.zip}}</td>
                             <td>{{accomodation.accomodation_type.name}}</td>
                             <td>
-                              {{#link-to "customers.accomodations.edit" accomodation.id class="btn btn-primary btn-xs"}}
-                                  Edit
-                              {{/link-to}}
-                              {{#link-to "customers.accomodations.show" accomodation.id
-                                 class="m-l-sm btn btn-primary btn-xs"}}
-                                  Show
-                              {{/link-to}}
+                              {{link-to 'Edit' "customers.accomodations.edit" accomodation.id
+                                class="btn btn-primary btn-xs"}}
+                              {{link-to 'Show' "customers.accomodations.show" accomodation.id
+                                class="m-l-sm btn btn-primary btn-xs"}}
                             </td>
                         </tr>
                     {{/each}}

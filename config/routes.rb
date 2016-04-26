@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :accomodations,  only: [:create, :index, :update, :show] do
       get :get_accomodation_types, on: :collection
     end
+    resources :spaces, only: [:index, :show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
