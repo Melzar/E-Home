@@ -6,9 +6,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
     return this.store.createRecord('accomodation');
   },
-  afterModel: function(model, transition){
-
-  },
   setupController: function(controller, model){
     controller.set('model', model);
     controller.set('accomodationTypes', this.store.peekAll('accomodation-type'));

@@ -1,2 +1,36 @@
-Space add tbd
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Spaces</h2>
+        <ol class="breadcrumb">
+            <li>
+              {{#link-to "customers.dashboard"}}Dashboard{{/link-to}}
+            </li>
+            <li>
+              {{#link-to "customers.accomodations"}}Accomodations{{/link-to}}
+            </li>
+            <li>
+              {{#link-to "customers.accomodations.show" accomodation.id}}{{accomodation.name}}{{/link-to}}
+            </li>
+            <li class="active">
+                <strong>New</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Provide your new space details</h5>
+                </div>
+                <div class="ibox-content">
+                  {{customers.accomodations.spaces.space-crud-form model=model accomodation=accomodation}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {{outlet}}

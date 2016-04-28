@@ -1,8 +1,7 @@
 <form {{action "save" on="submit"}}>
     <div class="form-group">
         <label class="control-label">Name</label>
-      {{input value=model.name id="name" type="text" placeholder="eg. My home at creek"
-      class="form-control"}}
+      {{input value=model.name id="name" type="text" placeholder="eg. My home at creek" class="form-control"}}
       {{form.field-error errors=model.errors.name }}
     </div>
     <div class="form-group">

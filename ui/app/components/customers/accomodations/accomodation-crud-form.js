@@ -14,10 +14,10 @@ export default Ember.Component.extend({
       accomodationTypes: Ember.$.getJSON('/customers/accomodations/get_accomodation_types.json')
     }).then( function( hash ) {
       store.pushPayload(hash.accomodationTypes);
-      var accomodation_types = store.peekAll('accomodation-type');
-      _this.set('accomodationTypes', accomodation_types);
+      var accomodationTypes = store.peekAll('accomodation-type');
+      _this.set('accomodationTypes', accomodationTypes);
       if(!model.get('accomodation_type')){
-        model.set('accomodation_type', accomodation_types.get('firstObject'));
+        model.set('accomodation_type', accomodationTypes.get('firstObject'));
       }
     });
   },

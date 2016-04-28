@@ -1,7 +1,21 @@
-
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Accomodations</h2>
+        <ol class="breadcrumb">
+            <li>
+              {{#link-to "customers.dashboard"}}Dashboard{{/link-to}}
+            </li>
+            <li>
+              {{#link-to "customers.accomodations"}}Accomodations{{/link-to}}
+            </li>
+            <li class="active">
+                <strong>{{model.name}}</strong>
+            </li>
+        </ol>
+    </div>
+</div>
 <div class="p-w-md m-t-sm">
     <div class="row">
-
         <div class="col-sm-4">
             <h1 class="m-b-xs">
                 26,900
@@ -120,6 +134,11 @@
         </div>
     </div>
 
+    <div class="row m-b-md">
+        <div class="col-xs-12 text-right">
+          {{#link-to 'customers.accomodations.spaces.new' model.id class='btn btn-primary'}}Add Space{{/link-to}}
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-12">
@@ -148,11 +167,13 @@
                                     <td>
                                       {{#link-to
                                          "customers.accomodations.spaces.show"
+                                         model.id
                                          space.id
                                          class="btn btn-xs btn-primary"}}
                                         Show
                                       {{/link-to}}
                                       {{#link-to "customers.accomodations.spaces.edit"
+                                         model.id
                                          space.id
                                          class="btn btn-xs btn-primary m-l-sm"}}
                                         Edit
