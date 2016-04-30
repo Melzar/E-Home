@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :accomodations,  only: [:create, :index, :update, :show] do
       get :get_accomodation_types, on: :collection
     end
-    resources :spaces, only: [:create, :index, :show] do
+    resources :spaces, only: [:create, :update, :index, :show] do
       get :get_space_types, on: :collection
     end
   end

@@ -7,6 +7,12 @@ class Space < ActiveRecord::Base
             presence: true,
             length: { maximum: 150 }
 
+  validates :space_type,
+            presence: true
+
+  validates :accomodation,
+            presence: true
+
   scope :for_customer, -> (customer){
     joins(:space_type)
     .joins(:accomodation)

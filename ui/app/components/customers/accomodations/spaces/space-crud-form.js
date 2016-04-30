@@ -30,10 +30,12 @@ export default Ember.Component.extend({
       var model = this.get('model');
       var routing = this.get('routing');
       var accomodation = this.get('accomodation');
+      model.set('accomodation', accomodation);
+      model.get('errors').clear();
       model.save().then(function(){
         routing.transitionTo('customers.accomodations.show', [accomodation]);
       }, function(error){
-        model.get('errors').clear();
+
       });
     },
     cancel: function(){
