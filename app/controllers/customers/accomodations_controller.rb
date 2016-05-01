@@ -23,7 +23,32 @@ class Customers::AccomodationsController < ApiController
 
   def show
     accomodation = accomodation_from_params
-    render_json_response(accomodation, [:accomodation_type, spaces: [:space_type]])
+
+    result = {
+        labels: [],
+        data_temperature: [],
+        data_electricity: [],
+        data_no_2: [],
+        data_co_2: []
+    }
+
+    accomodation.spaces.map do |space|
+      result[:labels].push(space.name)
+      result[:data_temperature].push(space.controls.joins(:control_logs).joins(:control_type)
+                                         .where(control_types: {name: 'temperature'})
+                                         .average(:value))
+      result[:data_electricity].push(space.controls.joins(:control_logs).joins(:control_type)
+                                         .where(control_types: {name:'electricity_socket'})
+                                         .sum(:value))
+      result[:data_no_2].push(space.controls.joins(:control_logs).joins(:control_type)
+                                  .where(control_types: {name: 'no_2'})
+                                  .sum(:value))
+      result[:data_co_2].push(space.controls.joins(:control_logs).joins(:control_type)
+                                  .where(control_types: {name: 'co_2'})
+                                  .sum(:value))
+    end
+
+    render_json_response(accomodation, [:accomodation_type, spaces: [:space_type]],result)
   end
 
   def update

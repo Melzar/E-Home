@@ -2,12 +2,21 @@ class Customers::ControlsController < ApiController
 
   def index
     controls = Control.for_customer(current_user.customer).all
-    render_json_response(controls, [:control_type, space: [:space_type]])
+    render_json_response(controls, [:control_type, space: [:space_type]], { lol: 'lol'})
   end
 
   def show
     control = control_from_params
-    render_json_response(control, [:space, :control_type, :control_logs])
+    control_logs = control.control_logs.limit(10)
+    result = {
+        labels: [],
+        data: [],
+    }
+    control_logs.map do |control_log|
+        result[:labels].push(control_log.created_at)
+        result[:data].push(control_log.value)
+    end
+    render_json_response(control, [:space, :control_type, :control_logs], result)
   end
 
   def create

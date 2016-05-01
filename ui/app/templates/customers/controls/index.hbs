@@ -61,8 +61,10 @@
                                 <td>
                                   {{link-to 'Edit' "customers.controls.edit" control.id
                                   class="btn btn-primary btn-xs"}}
-                                  {{link-to 'Show' "customers.controls.show" control.id
-                                  class="m-l-sm btn btn-primary btn-xs"}}
+                                  {{#if (not-eq control.control_type.name 'light_switch')}}
+                                    {{link-to 'Show' "customers.controls.show" control.id
+                                    class="m-l-sm btn btn-primary btn-xs"}}
+                                  {{/if}}
                                 </td>
                             </tr>
                         {{/each}}

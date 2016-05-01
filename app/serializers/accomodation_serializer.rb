@@ -1,5 +1,5 @@
 
-class AccomodationSerializer < ActiveModel::Serializer
+class AccomodationSerializer < BaseSerializer
   attributes :id, :name, :address_1, :address_2, :city, :zip, :latitude, :longitude
   has_many :customers, through: :customer_accomodations
   has_many :spaces

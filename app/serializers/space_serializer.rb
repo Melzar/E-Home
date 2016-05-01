@@ -1,4 +1,4 @@
-class SpaceSerializer < ActiveModel::Serializer
+class SpaceSerializer < BaseSerializer
   attributes :id, :name
   belongs_to :accomodation
   belongs_to :space_type

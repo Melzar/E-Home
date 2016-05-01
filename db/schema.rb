@@ -46,17 +46,10 @@ ActiveRecord::Schema.define(version: 20160430143424) do
   add_index "authorized_devices", ["customer_id"], name: "index_authorized_devices_on_customer_id", using: :btree
 
   create_table "control_logs", force: :cascade do |t|
-    t.integer  "control_id",  limit: 4,                           null: false
-    t.decimal  "lux",                   precision: 15, scale: 10
-    t.decimal  "humidity",              precision: 15, scale: 10
-    t.decimal  "temperature",           precision: 15, scale: 10
-    t.decimal  "db",                    precision: 15, scale: 10
-    t.decimal  "watt",                  precision: 15, scale: 10
-    t.decimal  "network",               precision: 15, scale: 10
-    t.decimal  "no_2",                  precision: 15, scale: 10
-    t.decimal  "co_2",                  precision: 15, scale: 10
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.integer  "control_id", limit: 4,                          null: false
+    t.decimal  "value",                precision: 15, scale: 5
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
   add_index "control_logs", ["control_id"], name: "fk_rails_c7598992b2", using: :btree

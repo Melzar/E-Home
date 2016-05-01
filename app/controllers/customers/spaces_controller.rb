@@ -25,7 +25,19 @@ class Customers::SpacesController < ApiController
 
   def show
     space = space_from_params
-    render_json_response(space, [:accomodation, :space_type])
+    result = {
+        data: []
+    }
+
+    space.controls.map do |control|
+      result[:data].push({
+          name: control.name,
+          type: control.control_type.name,
+          avg: control.control_logs.average(:value)
+      })
+    end
+
+    render_json_response(space, [:accomodation, :space_type, controls: [:control_type]], result)
   end
 
   def get_space_types

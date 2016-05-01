@@ -83,12 +83,39 @@ balkony_space = Space.create!({
                             accomodation: accomodation
                         })
 
-sensor = ControlType.create({
-                              name: 'sensor'
+luminosity = ControlType.create({
+                              name: 'luminosity'
                             })
+humidity = ControlType.create({
+                                    name: 'humidity'
+                                })
+temperature = ControlType.create({
+                                    name: 'temperature'
+                                })
+db = ControlType.create({
+                                    name: 'db'
+                                })
+
+watt = ControlType.create({
+                            name: 'watt'
+                        })
+
+network = ControlType.create({
+                            name: 'network'
+                        })
+
+no_2 = ControlType.create({
+                            name: 'no_2'
+                        })
+
+co_2 = ControlType.create({
+                            name: 'co_2'
+                        })
+
 light_switch = ControlType.create({
                                 name: 'light_switch'
                             })
+
 electricity_socket = ControlType.create({
                                 name: 'electricity_socket'
                             })
@@ -145,7 +172,7 @@ no_2_sensor_kitchen = Control.create!({
                     name: 'NO2 sensor in kitchen',
                     state: :on,
                     space: kitchen_space,
-                    control_type: sensor,
+                    control_type: no_2,
                     uuid: '1111-1111-1111-1111'
                 })
 
@@ -153,7 +180,7 @@ co_2_sensor_kitchen = Control.create!({
                     name: 'CO2 sensor in kitchen',
                     state: :on,
                     space: kitchen_space,
-                    control_type: sensor,
+                    control_type: co_2,
                     uuid: '1111-1111-1111-1111'
                 })
 
@@ -161,7 +188,7 @@ temperature_sensor_kitchen = Control.create!({
                     name: 'Temperature sensor inside',
                     state: :on,
                     space: living_room_space,
-                    control_type: sensor,
+                    control_type: temperature,
                     uuid: '1111-1111-1111-1111'
                 })
 
@@ -169,112 +196,63 @@ temperature_sensor_balkony = Control.create!({
                     name: 'Temperature sensor balkony (outside)',
                     state: :on,
                     space: balkony_space,
-                    control_type: sensor,
+                    control_type: temperature,
                     uuid: '1111-1111-1111-1111'
                 })
 
 [*1..100].each do |n|
   ControlLog.create!({
                          control: electricity_socket_tv_guest,
-                         lux: 0.00 ,
-                         humidity: 0.00,
-                         temperature: 0.00,
-                         db: 0.00,
-                         watt: 25.00,
-                         network: 0.00,
-                         no_2: 0.00,
-                         co_2: 0.00,
-                         created_at: DateTime.now + (n * 15.minutes).minutes
+                         value: rand(1..25),
+                         created_at: DateTime.now + (n * 15).minutes
                      })
 end
 
 [*1..100].each do |n|
   ControlLog.create!({
                          control: electricity_socket_bed_guest,
-                         lux: 0.00 ,
-                         humidity: 0.00,
-                         temperature: 0.00,
-                         db: 0.00,
-                         watt: 15.00,
-                         network: 0.00,
-                         no_2: 0.00,
-                         co_2: 0.00,
-                         created_at: DateTime.now + (n * 15.minutes).minutes
+                         value: rand(1..15),
+                         created_at: DateTime.now + (n * 15).minutes
                      })
 end
 
 [*1..100].each do |n|
   ControlLog.create!({
                          control: electricity_socket_poster_guest,
-                         lux: 0.00 ,
-                         humidity: 0.00,
-                         temperature: 0.00,
-                         db: 0.00,
-                         watt: 35.00,
-                         network: 0.00,
-                         no_2: 0.00,
-                         co_2: 0.00,
-                         created_at: DateTime.now + (n * 15.minutes).minutes
+                         value: rand(1..35),
+                         created_at: DateTime.now + (n * 15).minutes
                      })
 end
 
 [*1..100].each do |n|
   ControlLog.create!({
                          control: no_2_sensor_kitchen,
-                         lux: 0.00 ,
-                         humidity: 0.00,
-                         temperature: 0.00,
-                         db: 0.00,
-                         watt: 0.00,
-                         network: 0.00,
-                         no_2: 15.00,
-                         co_2: 0.00,
-                         created_at: DateTime.now + (n * 15.minutes).minutes
+                         value: rand(1..15),
+                         created_at: DateTime.now + (n * 15).minutes
                      })
 end
 
 [*1..100].each do |n|
   ControlLog.create!({
                          control: co_2_sensor_kitchen,
-                         lux: 0.00 ,
-                         humidity: 0.00,
-                         temperature: 0.00,
-                         db: 0.00,
-                         watt: 0.00,
-                         network: 0.00,
-                         no_2: 0.00,
-                         co_2: 15.00,
-                         created_at: DateTime.now + (n * 15.minutes).minutes
+                         value: rand(1..15),
+                         created_at: DateTime.now + (n * 15).minutes
                      })
 end
 
 [*1..100].each do |n|
   ControlLog.create!({
                          control: temperature_sensor_kitchen,
-                         lux: 0.00 ,
-                         humidity: 0.00,
-                         temperature: rand(1..2) == 2 ? 22.00 + rand(1..2) : 22.00 - rand(1..2),
-                         db: 0.00,
-                         watt: 0.00,
-                         network: 0.00,
-                         no_2: 0.00,
-                         co_2: 0.00,
-                         created_at: DateTime.now + (n * 15.minutes).minutes
+                         value: rand(18..22),
+                         created_at: DateTime.now + (n * 15).minutes
                      })
 end
 
 [*1..100].each do |n|
   ControlLog.create!({
                          control: temperature_sensor_balkony,
-                         lux: 0.00 ,
-                         humidity: 0.00,
-                         temperature: n > 50 ? 14.00 - (rand(1..2) / n): 14.00 + (rand(1..2) / n),
-                         db: 0.00,
-                         watt: 0.00,
-                         network: 0.00,
-                         no_2: 0.00,
-                         co_2: 0.00,
-                         created_at: DateTime.now + (n * 15.minutes).minutes
+                         value: rand(1..14),
+                         created_at: DateTime.now + (n * 15).minutes
                      })
 end
 

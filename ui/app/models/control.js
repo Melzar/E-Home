@@ -7,5 +7,6 @@ export default DS.Model.extend({
     uuid: DS.attr(),
     space: DS.belongsTo('space', { async: false }),
     control_type: DS.belongsTo('control-type', { async: false }),
-    control_logs: DS.hasMany('control-log', { async: false })
+    control_logs: DS.hasMany('control-log', { async: false }),
+    meta: DS.attr()
 });

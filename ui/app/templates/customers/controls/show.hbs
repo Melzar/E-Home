@@ -15,34 +15,57 @@
     </div>
 </div>
 
-<div class="p-w-md m-t-sm">
+<div class="p-w-md m-t-sm animated fadeInRight">
     <div class="row text-center m-b-lg">
         <div class="col-xs-12">
             <div class="widget yellw-bg no-padding">
-                <div class="p-m">
-                    <h1 class="m-xs">$ 50,992</h1>
+              {{#if (eq model.control_type.name 'temperature')}}
+                {{chart.chart-widget labels=model.meta.labels chart_data=model.meta.data unit='°C' time=true type='line'}}
+              {{else if (eq model.control_type.name 'no_2')}}
+                {{chart.chart-widget labels=model.meta.labels chart_data=model.meta.data unit='NO2' time=true type='line'}}
+              {{else if (eq model.control_type.name 'co_2')}}
+                {{chart.chart-widget labels=model.meta.labels chart_data=model.meta.data unit='CO2' time=true type='line'}}
+              {{else if (eq model.control_type.name 'electricity_socket')}}
+                {{chart.chart-widget labels=model.meta.labels chart_data=model.meta.data unit='kWh' time=true type='line'}}
+              {{/if}}
 
-                    <h3 class="font-bold no-margins">
-                        Half-year revenue margin
-                    </h3>
-                    <small>Sales marketing.</small>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>
+                        <strong>{{model.name}}</strong>
+                        Control logs list
+                    </h5>
                 </div>
-                <div class="flot-chart">
-                    <div flot="" class="flot-chart-content ng-isolate-scope" dataset="chart.flotChartData3"
-                         options="chart.flotChartOptions3">
-                        <div style="width: 100%; height: 100%; padding: 0px; position: relative;">
-                            <canvas class="flot-base"
-                                    style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 385px; height: 100px;"
-                                    width="770" height="200"></canvas>
-                            <canvas class="flot-overlay"
-                                    style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 385px; height: 100px;"
-                                    width="770" height="200"></canvas>
-                        </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Value</th>
+                                <th>Created At</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each model.control_logs as |control_log|}}
+                                <tr>
+                                    <td>{{control_log.id}}</td>
+                                    <td>{{control_log.value}}</td>
+                                    <td>{{control_log.created_at}}</td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
