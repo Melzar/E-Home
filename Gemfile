@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'mysql2'
 
 # Ember dependencies
-gem 'ember-cli-rails'
+gem 'ember-cli-rails', '~> 0.7.3'
 
 # Devise
 gem 'devise', '~> 4.0.0.rc1'

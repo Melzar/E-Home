@@ -6,11 +6,7 @@
               {{#link-to "customers.dashboard"}}Dashboard{{/link-to}}
             </li>
             <li>
-              {{#link-to "customers.accomodations"}}Accomodations{{/link-to}}
-            </li>
-            <li>
-              {{#link-to "customers.accomodations.show" accomodation.id}}{{accomodation.name}}{{/link-to}}
-
+              {{#link-to "customers.spaces"}}Spaces{{/link-to}}
             </li>
             <li class="active">
                 <strong>Edit</strong>
@@ -26,7 +22,7 @@
                     <h5>Provide details to update your space data</h5>
                 </div>
                 <div class="ibox-content">
-                  {{customers.accomodations.spaces.space-crud-form model=model accomodation=accomodation}}
+                  {{customers.spaces.space-crud-form model=model}}
                 </div>
             </div>
         </div>

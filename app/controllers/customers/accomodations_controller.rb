@@ -2,7 +2,7 @@ class Customers::AccomodationsController < ApiController
 
   def index
     accomodations = Accomodation.for_customer(current_user.customer).map do |accomodation| accomodation end
-    render_json_response(accomodations, :accomodation_type)
+    render_json_response(accomodations, [:accomodation_type, :spaces])
   end
 
   def create
@@ -17,7 +17,7 @@ class Customers::AccomodationsController < ApiController
         render_json_response(customer_accomodation)
         raise ActiveRecord::Rollback
       end
-      render_json_response
+      render_response :ok
     end
   end
 
@@ -29,7 +29,15 @@ class Customers::AccomodationsController < ApiController
   def update
     accomodation = accomodation_from_params
     accomodation.update_attributes(post_params)
-    render_json_response(accomodation)
+    render_response :ok
+  end
+
+  def destroy
+    accomodation = accomodation_from_params
+    if !accomodation.destroy
+      render_json_response(accomodation, :unprocessable_entity)
+    end
+    render_response :ok
   end
 
   def get_accomodation_types
@@ -40,7 +48,7 @@ class Customers::AccomodationsController < ApiController
   private
 
   def accomodation_from_params
-    accomodation = current_user.customer.accomodations.find_by_id(params[:id])
+    accomodation = Accomodation.for_customer(current_user.customer).find_by_id(params[:id])
     if(accomodation.blank?)
       render_response(:unprocessable_entity)
       return

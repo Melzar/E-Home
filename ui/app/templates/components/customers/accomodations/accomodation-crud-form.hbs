@@ -55,15 +55,24 @@
       class="form-control"}}
       {{form.field-error errors=model.errors.longitude }}
     </div>
-    <div class="form-group clear">
-        <a id="cancel" {{action "cancel" }} class="btn btn-danger btn-sm pull-left">Cancel</a>
-        <button
-                id="submit"
-                type="submit"
-                class="btn btn-primary btn-sm pull-right"
-                disabled={{if model.isValid false true}}>
-            Save
-        </button>
+    <div class="form-group row">
+        <div class="col-xs-4 text-left">
+            <a id="cancel" {{action "cancel" }} class="btn btn-warning btn-sm">Cancel</a>
+        </div>
+        <div class="col-xs-4 text-center">
+          {{#if model.id}}
+              <a id="delete" {{action "delete" }} class="btn btn-danger btn-sm">Delete</a>
+          {{/if}}
+        </div>
+        <div class="col-xs-4 text-right">
+            <button
+                    id="submit"
+                    type="submit"
+                    class="btn btn-primary btn-sm pull-right"
+                    disabled={{if model.isValid false true}}>
+                Save
+            </button>
+        </div>
     </div>
 </form>
 {{yield}}

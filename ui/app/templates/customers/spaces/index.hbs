@@ -1,0 +1,61 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Spaces</h2>
+        <ol class="breadcrumb">
+            <li>
+              {{#link-to "customers.dashboard"}}Dashboard{{/link-to}}
+            </li>
+            <li>
+              {{#link-to "customers.spaces"}}Spaces{{/link-to}}
+            </li>
+            <li class="active">
+                <strong>Edit</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row m-b-md">
+                <div class="col-xs-12 text-right">
+                  {{#link-to "customers.spaces.new" class="btn btn-primary"}}Add Space{{/link-to}}
+                </div>
+            </div>
+            <div class="ibox">
+                <div class="ibox-content">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Accomodation</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each model as |space|}}
+                            <tr>
+                                <td>{{space.name}}</td>
+                                <td>{{space.space_type.name}}</td>
+                                <td>{{space.accomodation.name}} ( {{space.accomodation.accomodation_type.name}} )</td>
+                                <td>
+                                  {{link-to 'Edit' "customers.spaces.edit" space.id
+                                  class="btn btn-primary btn-xs"}}
+                                  {{link-to 'Show' "customers.spaces.show" space.id
+                                  class="m-l-sm btn btn-primary btn-xs"}}
+                                </td>
+                            </tr>
+                        {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{{outlet}}

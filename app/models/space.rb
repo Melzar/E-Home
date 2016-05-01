@@ -2,6 +2,7 @@ class Space < ActiveRecord::Base
 
   belongs_to :space_type
   belongs_to :accomodation
+  has_many :controls
 
   validates :name,
             presence: true,

@@ -1,7 +1,7 @@
 class CreateControlLogs < ActiveRecord::Migration
   def change
     create_table :control_logs do |t|
-      t.references :control, null: false
+      t.references :control, null: false, foreign_key: true, foreign_key_name: 'Control_Control_Logs_FK'
       t.decimal :lux, precision: 15, scale: 10
       t.decimal :humidity, precision: 15, scale: 10
       t.decimal :temperature, precision: 15, scale: 10

@@ -1,17 +1,16 @@
 import Ember from 'ember';
 
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-
+import Parent from 'ember-cli-history-mixin/mixins/route-history';
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  model: function() {
+  model: function () {
     return this.store.createRecord('accomodation');
   },
-  setupController: function(controller, model){
+  setupController: function (controller, model) {
     controller.set('model', model);
-    controller.set('accomodationTypes', this.store.peekAll('accomodation-type'));
   },
   actions: {
-    cancel: function(){
+    cancel: function () {
       this.currentModel.rollbackAttributes();
       this.transitionTo('customers.accomodations');
     }

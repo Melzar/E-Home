@@ -136,7 +136,7 @@
 
     <div class="row m-b-md">
         <div class="col-xs-12 text-right">
-          {{#link-to 'customers.accomodations.spaces.new' model.id class='btn btn-primary'}}Add Space{{/link-to}}
+          {{#link-to 'customers.spaces.new' class='btn btn-primary'}}Add Space{{/link-to}}
         </div>
     </div>
 
@@ -166,14 +166,12 @@
                                     <td>{{space.space_type.name}}</td>
                                     <td>
                                       {{#link-to
-                                         "customers.accomodations.spaces.show"
-                                         model.id
+                                         "customers.spaces.show"
                                          space.id
                                          class="btn btn-xs btn-primary"}}
                                         Show
                                       {{/link-to}}
-                                      {{#link-to "customers.accomodations.spaces.edit"
-                                         model.id
+                                      {{#link-to "customers.spaces.edit"
                                          space.id
                                          class="btn btn-xs btn-primary m-l-sm"}}
                                         Edit

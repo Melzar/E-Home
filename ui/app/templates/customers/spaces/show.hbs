@@ -6,10 +6,7 @@
               {{#link-to "customers.dashboard"}}Dashboard{{/link-to}}
             </li>
             <li>
-              {{#link-to "customers.accomodations"}}Accomodations{{/link-to}}
-            </li>
-            <li>
-              {{#link-to "customers.accomodations.show" accomodation.id}}{{accomodation.name}}{{/link-to}}
+              {{#link-to "customers.spaces"}}Spaces{{/link-to}}
             </li>
             <li class="active">
                 <strong>{{model.name}}</strong>
@@ -82,7 +79,7 @@
     </div>
     <div class="row m-b-md">
         <div class="col-xs-12 text-right">
-          {{#link-to 'customers.accomodations.spaces.new' model.id class='btn btn-primary'}}Add Space{{/link-to}}
+          {{#link-to 'customers.controls.new' class='btn btn-primary'}}Add Control{{/link-to}}
         </div>
     </div>
 
@@ -92,7 +89,7 @@
                 <div class="ibox-title">
                     <h5>
                         <strong>{{model.name}}</strong>
-                        Space list
+                        Controls list
                     </h5>
                 </div>
                 <div class="ibox-content">
@@ -100,26 +97,24 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Space Name</th>
-                                <th>Space Type</th>
+                                <th>Control Name</th>
+                                <th>Control Type</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {{#each model.spaces as |space|}}
+                            {{#each model.controls as |control|}}
                                 <tr>
-                                    <td>{{space.name}}</td>
-                                    <td>{{space.space_type.name}}</td>
+                                    <td>{{control.name}}</td>
+                                    <td>{{control.control_type.name}}</td>
                                     <td>
                                       {{#link-to
-                                      "customers.accomodations.spaces.show"
-                                      model.id
-                                      space.id
+                                      "customers.controls.show"
+                                      control.id
                                       class="btn btn-xs btn-primary"}}
                                           Show
                                       {{/link-to}}
-                                      {{#link-to "customers.accomodations.spaces.edit"
-                                      model.id
+                                      {{#link-to "customers.controls.edit"
                                       space.id
                                       class="btn btn-xs btn-primary m-l-sm"}}
                                           Edit

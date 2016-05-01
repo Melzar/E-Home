@@ -1,0 +1,19 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Controls</h2>
+        <ol class="breadcrumb">
+            <li>
+              {{#link-to "customers.dashboard"}}Dashboard{{/link-to}}
+            </li>
+            <li>
+              {{#link-to "customers.controls"}}Controls{{/link-to}}
+            </li>
+            <li class="active">
+                <strong>{{model.name}}</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+{{outlet}}

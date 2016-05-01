@@ -3,8 +3,8 @@ class Accomodation < ActiveRecord::Base
   belongs_to :accomodation_type
   has_many :customers, through: :customer_accomodations
   has_many :authorized_devices, through: :customer_accomodations
-  has_many :customer_accomodations
-  has_many :spaces
+  has_many :customer_accomodations, dependent: :delete_all
+  has_many :spaces, dependent: :delete_all
 
   validates_presence_of :accomodation_type
 

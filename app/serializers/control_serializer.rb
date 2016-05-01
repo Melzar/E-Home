@@ -3,4 +3,5 @@ class ControlSerializer < ActiveModel::Serializer
 
   belongs_to :control_type
   has_many :control_logs
+  belongs_to :space
 end

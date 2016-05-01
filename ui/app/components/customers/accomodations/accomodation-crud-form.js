@@ -28,10 +28,22 @@ export default Ember.Component.extend({
     save: function(){
       var model = this.get('model');
       var route = this.get('routing');
+      var store = this.get('store');
       model.get("errors").clear();
-      model.save().then(function(data){
+      model.save().then(function(){
+        store.unloadRecord(model);
         route.transitionTo('customers.accomodations');
-      },function(error){
+      },function(){
+
+      });
+    },
+    delete: function(){
+      var model = this.get('model');
+      var routing = this.get('routing');
+      model.deleteRecord();
+      model.save().then(function(){
+        routing.transitionTo('customers.accomodations');
+      },function(){
 
       });
     },

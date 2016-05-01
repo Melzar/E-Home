@@ -74,12 +74,12 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    ember-cli-rails (0.7.0)
+    ember-cli-rails (0.7.3)
       cocaine (~> 0.5.8)
-      ember-cli-rails-assets (>= 0.6.1)
+      ember-cli-rails-assets (~> 0.6.2)
       html_page (~> 0.1.0)
       railties (>= 3.2, < 5)
-    ember-cli-rails-assets (0.6.1)
+    ember-cli-rails-assets (0.6.2)
     erubis (2.7.0)
     execjs (2.6.0)
     factory_girl (4.7.0)
@@ -204,7 +204,7 @@ DEPENDENCIES
   capybara (~> 2.7)
   coffee-rails (~> 4.1.0)
   devise (~> 4.0.0.rc1)
-  ember-cli-rails
+  ember-cli-rails (~> 0.7.3)
   factory_girl (~> 4.7)
   jbuilder (~> 2.0)
   jquery-rails

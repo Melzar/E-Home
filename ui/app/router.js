@@ -12,11 +12,16 @@ Router.map(function() {
       this.route('show', { path: '/:id'});
       this.route('edit', { path: '/:id/edit'});
       this.route('new');
-      this.route('spaces', {path: '/:accomodation_id/spaces'}, function() {
-        this.route('show', { path: '/:id'});
-        this.route('edit', { path: '/:id/edit'});
-        this.route('new');
-      });
+    });
+    this.route('spaces', function() {
+      this.route('show', { path: '/:id'});
+      this.route('edit', { path: '/:id/edit'});
+      this.route('new');
+    });
+    this.route('controls', function() {
+      this.route('show', { path: '/:id'});
+      this.route('edit', { path: '/:id/edit'});
+      this.route('new');
     });
   });
   this.route('reset-password');

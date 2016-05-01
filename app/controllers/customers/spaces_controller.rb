@@ -1,7 +1,8 @@
 class Customers::SpacesController < ApiController
 
   def index
-
+    spaces = Space.for_customer(current_user.customer)
+    render_json_response(spaces, [:space_type, accomodation: [:accomodation_type]])
   end
 
   def update
@@ -24,7 +25,7 @@ class Customers::SpacesController < ApiController
 
   def show
     space = space_from_params
-    render_json_response(space)
+    render_json_response(space, [:accomodation, :space_type])
   end
 
   def get_space_types
