@@ -16,7 +16,7 @@ export default Ember.Component.extend({
       accomodations: store.findAll('accomodation')
     }).then(function( hash ){
       store.pushPayload(hash.spaceTypes);
-      var accomodations = hash.accomodations
+      var accomodations = hash.accomodations;
       var spaceTypes = store.peekAll('space-type');
       _this.set('spaceTypes', spaceTypes);
       _this.set('accomodations', accomodations);
@@ -38,8 +38,8 @@ export default Ember.Component.extend({
     save: function(){
       var model = this.get('model');
       var routing = this.get('routing');
-      model.get('errors').clear();
       var store = this.get('store');
+      model.get('errors').clear();
       model.save().then(function(){
         store.unloadRecord(model);
         routing.transitionTo('customers.spaces');

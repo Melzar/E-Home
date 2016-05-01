@@ -1,8 +1,13 @@
-class Customers::ControlsController < ApplicationController
+class Customers::ControlsController < ApiController
 
   def index
     controls = Control.for_customer(current_user.customer).all
     render_json_response(controls, [:control_type, space: [:space_type]])
+  end
+
+  def show
+    control = control_from_params
+    render_json_response(control, [:space, :control_type, :control_log])
   end
 
   def create
@@ -20,6 +25,11 @@ class Customers::ControlsController < ApplicationController
       render_json_response(control, :unprocessable_entity)
     end
     render_response :ok
+  end
+
+  def get_control_types
+    control_types = ControlType.all
+    render_json_response(control_types)
   end
 
   private

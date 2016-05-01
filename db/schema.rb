@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160430143424) do
 
   create_table "controls", force: :cascade do |t|
     t.integer  "control_type_id", limit: 4,               null: false
+    t.integer  "space_id",        limit: 4,               null: false
     t.string   "name",            limit: 255,             null: false
     t.integer  "status",          limit: 4,   default: 0, null: false
     t.string   "uuid",            limit: 255,             null: false
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 20160430143424) do
   end
 
   add_index "controls", ["control_type_id"], name: "fk_rails_4d5683c4c2", using: :btree
+  add_index "controls", ["space_id"], name: "fk_rails_6a78b17db1", using: :btree
 
   create_table "customer_accomodations", force: :cascade do |t|
     t.integer  "customer_id",          limit: 4
@@ -153,6 +155,7 @@ ActiveRecord::Schema.define(version: 20160430143424) do
   add_foreign_key "authorized_devices", "customers", name: "Authorized_devices_Customers_Foreign_Key"
   add_foreign_key "control_logs", "controls"
   add_foreign_key "controls", "control_types"
+  add_foreign_key "controls", "spaces"
   add_foreign_key "customer_accomodations", "authorized_devices", name: "Customers_Accomodations_Authorized_Devices_Foreign_Key"
   add_foreign_key "customer_accomodations", "customers", name: "Customers_Accomodations_Accomodations_Foreign_Key"
   add_foreign_key "customer_accomodations", "customers", name: "Customers_Accomodations_Customers_Foreign_Key"

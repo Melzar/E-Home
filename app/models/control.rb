@@ -20,9 +20,8 @@ class Control < ActiveRecord::Base
         .includes(:control_type)
         .joins(:space)
         .includes(:space)
-        .joins(:accomodation)
-        .joins(accomodation: :customer_accomodaton)
-        .where(customer_accomodation: {customer_id: customer.id})
+        .joins(space: [accomodation: :customer_accomodations])
+        .where(customer_accomodations: {customer_id: customer.id})
   }
 
 
