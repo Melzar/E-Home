@@ -5,6 +5,7 @@ class CreateControls < ActiveRecord::Migration
       t.references :space, null: false, foreign_key: true, foreign_key_name: 'Control_Space_Type_FK'
       t.string :name, null: false
       t.integer :status, null: false, default: 0
+      t.boolean :state, null: false, default: 0
       t.string :uuid, null: false
       t.timestamps null: false
     end

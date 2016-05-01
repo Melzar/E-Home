@@ -5,7 +5,7 @@ export default DS.Model.extend({
     humidity: DS.attr(),
     temperature: DS.attr(),
     db: DS.attr(),
-    voltage: DS.attr(),
+    watt: DS.attr(),
     network: DS.attr(),
     no_2: DS.attr(),
     co_2: DS.attr(),

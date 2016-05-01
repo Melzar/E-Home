@@ -7,7 +7,7 @@ class Customers::ControlsController < ApiController
 
   def show
     control = control_from_params
-    render_json_response(control, [:space, :control_type, :control_log])
+    render_json_response(control, [:space, :control_type, :control_logs])
   end
 
   def create
@@ -22,6 +22,14 @@ class Customers::ControlsController < ApiController
   def update
     control = control_from_params
     if !control.update(post_params)
+      render_json_response(control, :unprocessable_entity)
+    end
+    render_response :ok
+  end
+
+  def destroy
+    control = control_from_params
+    if !control.destroy
       render_json_response(control, :unprocessable_entity)
     end
     render_response :ok
@@ -48,6 +56,7 @@ class Customers::ControlsController < ApiController
                                                            only: [
                                                                :name,
                                                                :status,
+                                                               :state,
                                                                :uuid,
                                                                'control-type',
                                                                :space

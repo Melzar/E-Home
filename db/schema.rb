@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160430143424) do
     t.decimal  "humidity",              precision: 15, scale: 10
     t.decimal  "temperature",           precision: 15, scale: 10
     t.decimal  "db",                    precision: 15, scale: 10
-    t.decimal  "voltage",               precision: 15, scale: 10
+    t.decimal  "watt",                  precision: 15, scale: 10
     t.decimal  "network",               precision: 15, scale: 10
     t.decimal  "no_2",                  precision: 15, scale: 10
     t.decimal  "co_2",                  precision: 15, scale: 10
@@ -68,13 +68,14 @@ ActiveRecord::Schema.define(version: 20160430143424) do
   end
 
   create_table "controls", force: :cascade do |t|
-    t.integer  "control_type_id", limit: 4,               null: false
-    t.integer  "space_id",        limit: 4,               null: false
-    t.string   "name",            limit: 255,             null: false
-    t.integer  "status",          limit: 4,   default: 0, null: false
-    t.string   "uuid",            limit: 255,             null: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.integer  "control_type_id", limit: 4,                   null: false
+    t.integer  "space_id",        limit: 4,                   null: false
+    t.string   "name",            limit: 255,                 null: false
+    t.integer  "status",          limit: 4,   default: 0,     null: false
+    t.boolean  "state",                       default: false, null: false
+    t.string   "uuid",            limit: 255,                 null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   add_index "controls", ["control_type_id"], name: "fk_rails_4d5683c4c2", using: :btree

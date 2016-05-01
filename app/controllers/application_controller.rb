@@ -7,9 +7,6 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_token!
 
   private
-  def authenticate!
-    authenticate_token! || render_unauthorized
-  end
 
   def authenticate_token!
     authenticate_with_http_token do |token, options|
@@ -22,8 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def render_unauthorized
-    render json: {
-        errors: ['Bad credentials']
-    }, status: 401
+    render json: { errors: ['Bad credentials'] }, status: :unauthorized
   end
 end

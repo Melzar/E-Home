@@ -6,10 +6,75 @@
               {{#link-to "customers.dashboard"}}Dashboard{{/link-to}}
             </li>
             <li class="active">
-              <strong>{{#link-to "customers.controls"}}Controls{{/link-to}}</strong>
+                <strong>{{#link-to "customers.controls"}}Controls{{/link-to}}</strong>
             </li>
         </ol>
     </div>
 </div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row m-b-md">
+                <div class="col-xs-12 text-right">
+                  {{#link-to "customers.controls.new" class="btn btn-primary"}}Add Control{{/link-to}}
+                </div>
+            </div>
+            <div class="ibox">
+                <div class="ibox-content">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>UUID</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>State</th>
+                            <th>Accomodation</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each model as |control|}}
+                            <tr>
+                                <td>{{control.uuid}}</td>
+                                <td>{{control.name}}</td>
+                                <td>{{control.control_type.name}}</td>
+                                <td>
+                                  {{#if (eq control.status 'healthy')}}
+                                      <span class="badge badge-primary">{{control.status}}</span>
+                                  {{else if (eq control.status 'malfunctioned')}}
+                                      <span class="badge badge-danger">{{control.status}}</span>
+                                  {{else}}
+                                      <span class="badge badge-warning">{{control.status}}</span>
+                                  {{/if}}
+                                </td>
+                                <td>
+                                  {{#if control.state }}
+                                      <span class="badge badge-primary">ON</span>
+                                  {{else}}
+                                      <span class="badge badge-danger">OFF</span>
+                                  {{/if}}
+                                </td>
+                                <td>{{control.space.name}} ( {{control.space.space_type.name}} )</td>
+                                <td>
+                                  {{link-to 'Edit' "customers.controls.edit" control.id
+                                  class="btn btn-primary btn-xs"}}
+                                  {{link-to 'Show' "customers.controls.show" control.id
+                                  class="m-l-sm btn btn-primary btn-xs"}}
+                                </td>
+                            </tr>
+                        {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 {{outlet}}
