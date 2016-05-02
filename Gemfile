@@ -47,16 +47,20 @@ gem 'active_model_serializers', '~> 0.10.0.rc5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   # Rspec framework for testing
   gem 'rspec-rails', '~> 3.4'
-
   # FactoryGirl for generating mockups
   gem 'factory_girl', '~> 4.7'
-
   # Capybara for some automated testing
   gem 'capybara', '~> 2.7'
-
+  # Selenium Webdriver
+  gem 'selenium-webdriver', '~> 2.53'
+  # Cucumber tests
+  gem 'cucumber-rails', '~> 1.4', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner', '~> 1.5.3'
+  # Test coverage
+  gem 'simplecov', '~> 0.11.2'
 end
 
 group :development do
