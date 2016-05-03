@@ -4,7 +4,8 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-
+require 'database_cleaner'
+require 'database_cleaner/cucumber'
 require 'factory_girl'
 require 'cucumber/rails'
 require 'simplecov'

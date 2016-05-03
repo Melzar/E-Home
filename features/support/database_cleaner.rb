@@ -10,3 +10,19 @@ end
 Around do |scenario, block|
   DatabaseCleaner.cleaning(&block)
 end
+
+Before('@truncation') do
+  DatabaseCleaner.start
+end
+
+Before('~@truncation') do
+  DatabaseCleaner.start
+end
+
+After('@truncation') do
+  DatabaseCleaner.clean
+end
+
+After('~@truncation') do
+  DatabaseCleaner.clean
+end

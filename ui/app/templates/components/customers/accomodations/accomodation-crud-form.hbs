@@ -1,12 +1,13 @@
 <form {{action "save" on="submit"}}>
-    <div class="form-group">
+    <div id="name_group" class="form-group">
         <label class="control-label">Name</label>
       {{input value=model.name id="name" type="text" placeholder="eg. My home at creek" class="form-control"}}
       {{form.field-error errors=model.errors.name }}
     </div>
-    <div class="form-group">
+    <div id="type_group" class="form-group">
         <label class="control-label">Accomodation Type</label>
       {{#power-select
+      id="accomodation_type"
       searchEnabled=false
       selected=model.accomodation_type
       options=accomodationTypes
@@ -17,13 +18,13 @@
     </div>
     <div class="form-group">
         <div class="row">
-            <div class="col-xs-8 col-lg-6">
+            <div id="address_1_group" class="col-xs-8 col-lg-6">
                 <label class="control-label">Address 1</label>
               {{input value=model.address_1 id="address_1" type="text" placeholder="eg. Space street"
               class="form-control"}}
               {{form.field-error errors=model.errors.address_1  }}
             </div>
-            <div class="col-xs-4 col-lg-6">
+            <div id="address_2_group" class="col-xs-4 col-lg-6">
                 <label class="control-label">Address 2</label>
               {{input value=model.address_2 id="address_2" type="text" placeholder="eg. 31/08"
               class="form-control"}}
@@ -31,31 +32,31 @@
             </div>
         </div>
     </div>
-    <div class="form-group">
+    <div id="city_group" class="form-group">
         <label class="control-lablel">City</label>
       {{input value=model.city id="city" type="text" placeholder="eg. Washington"
       class="form-control"}}
       {{form.field-error errors=model.errors.city }}
     </div>
-    <div class="form-group">
+    <div id="zip_group" class="form-group">
         <label class="control-label">Zip</label>
       {{input value=model.zip id="zip" type="text" placeholder="eg. eg. 00-000"
       class="form-control"}}
       {{form.field-error errors=model.errors.zip }}
     </div>
-    <div class="form-group">
+    <div id="latitude_group" class="form-group">
         <label class="control-label">Latitude</label>
       {{input value=model.latitude id="latitude" type="text" placeholder="eg. 50.0000"
       class="form-control"}}
       {{form.field-error errors=model.errors.latitude }}
     </div>
-    <div class="form-group">
+    <div id="longitude_group" class="form-group">
         <label class="control-label">Longitude</label>
       {{input value=model.longitude id="longitude" type="text" placeholder="eg. 50.0000"
       class="form-control"}}
       {{form.field-error errors=model.errors.longitude }}
     </div>
-    <div class="form-group row">
+    <div id="crud_actions" class="form-group row">
         <div class="col-xs-4 text-left">
             <a id="cancel" {{action "cancel" }} class="btn btn-warning btn-sm">Cancel</a>
         </div>
