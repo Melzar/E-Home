@@ -50,7 +50,7 @@ group :development, :test do
   # Rspec framework for testing
   gem 'rspec-rails', '~> 3.4'
   # FactoryGirl for generating mockups
-  gem 'factory_girl', '~> 4.7'
+  gem 'factory_girl_rails', '~> 4.7'
   # Capybara for some automated testing
   gem 'capybara', '~> 2.7'
   # Selenium Webdriver

@@ -5,3 +5,7 @@ module ControllerMacros
   end
 
 end
+
+RSpec.configure do |config|
+  config.include ControllerMacros
+end
