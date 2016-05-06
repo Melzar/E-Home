@@ -98,7 +98,6 @@ describe Customers::AccomodationsController, type: :controller do
       accomodation = Accomodation.find_by_id(@accomodation.id)
 
       expect(accomodation.blank?).to be(true)
-
     end
 
   end

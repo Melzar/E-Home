@@ -13,6 +13,6 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
         _this.transitionTo('401');
       }
     });
-    return true; // Bubble the didTransition event
+    return true;
   }
 });

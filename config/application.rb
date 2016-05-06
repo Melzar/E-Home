@@ -25,5 +25,7 @@ module Ehome
     config.active_record.raise_in_transactional_callbacks = true
 
     config.assets.precompile += ["*.ttf", "*.woff", "*.svg", "*.eot"]
+
+    config.middleware.use ActionDispatch::Flash
   end
 end
