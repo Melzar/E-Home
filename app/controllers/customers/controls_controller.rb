@@ -1,7 +1,7 @@
 class Customers::ControlsController < ApiController
 
   def index
-    controls = Control.for_customer(current_user.customer).all
+    controls = Control.for_customer(current_user.customer)
     render_json_response(controls, [:control_type, space: [:space_type]], { lol: 'lol'})
   end
 

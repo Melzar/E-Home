@@ -1,7 +1,7 @@
 class Customers::AccomodationsController < ApiController
 
   def index
-    accomodations = Accomodation.for_customer(current_user.customer).map do |accomodation| accomodation end
+    accomodations = Accomodation.for_customer(current_user.customer)
     render_json_response(accomodations, [:accomodation_type, :spaces])
   end
 
