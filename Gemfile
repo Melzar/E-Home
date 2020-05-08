@@ -30,7 +30,7 @@ gem 'mysql2'
 gem 'ember-cli-rails', '~> 0.7.3'
 
 # Devise
-gem 'devise', '~> 4.0.0.rc1'
+gem 'devise', '~> 4.7.1'
 
 # Active Models serializers
 gem 'active_model_serializers', '~> 0.10.0.rc5'
